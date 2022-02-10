@@ -1,0 +1,30 @@
+<p-dialog (onHide)="onHide()" (onShow)="onShow()" header="{{title}}" [(visible)]="display" [modal]="true"
+          [style]="{width: '50vw'}">
+
+  <form [formGroup]="formUserDialog">
+    <div class="p-grid">
+      <div class="p-col">
+        <label for="name">{{'NAME' | translate}}</label>
+        <input id="name" type="text" pInputText formControlName="name" pKeyFilter="alpha"
+               placeholder="{{'NAME' | translate}}" [(ngModel)]="user.name">
+      </div>
+      <div class="p-col">
+        <label for="familyName">{{'FAMILY_NAME' | translate}}</label>
+        <input id="familyName" type="text" pInputText formControlName="familyName" pKeyFilter="alpha"
+               placeholder="{{'FAMILY_NAME' | translate}}" [(ngModel)]="user.familyName">
+
+      </div>
+      <div class="p-col">
+        <label for="role">{{'ROLE' | translate}}</label>
+        <p-dropdown id="role" [options]="roleList" [ngModelOptions]="{standalone: true}" [style]="{width:'150px'}" [(ngModel)]="user.role" optionLabel="title"></p-dropdown>
+      </div>
+    </div>
+  </form>
+
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" *ngIf="isVisibleForm" (click)="save()" [disabled]="!formUserDialog.valid"
+            label="{{'SAVE' | translate}}" class="p-button-success"></button>
+    <button type="button" pButton icon="pi pi-times"  (click)="display=false" label="{{'CLOSE' | translate}}"
+            class="p-button-danger"></button>
+  </p-footer>
+</p-dialog>

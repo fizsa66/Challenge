@@ -1,0 +1,56 @@
+<p-table #dt [columns]="cols" [value]="userList" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="caption" let-columns>
+    <div class="d-flex">
+      <div style="text-align: right" class="d-flex table-buttons-header">
+        <button type="button" pButton (click)="showItem(null,'ADD')"
+                class="p-button-success"> <i class="pi pi-plus"></i>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+      <th>
+        {{'OPERATIONS' | translate}}
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input *ngSwitchCase="'familyName'" pInputText type="text"
+               (input)="dt.filter($event.target['value'], col.field, 'contains')">
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+      <td>
+        <button pButton
+                class="p-button-info" (click)="showItem(rowData,'VIEW')">
+        <i class="pi pi-search"></i>
+        </button>
+        <button pButton
+                class="p-button-warning" (click)="showItem(rowData,'EDIT')">
+        <i class="pi pi-pencil"></i>
+        </button>
+        <button pButton
+                class="p-button-danger" (click)="deleteItem(rowData.id)">
+        <i class="pi pi-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-confirmDialog #cd key="deleteUser" header="{{'DELETE' | translate}}" appendTo="body" icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="{{'NO' | translate}}" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="{{'YES' | translate}}" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>

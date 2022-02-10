@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
+import {RouterModule} from "@angular/router";
+import {FooterModule} from "../footer/footer.module";
+import {HeaderModule} from "../header/header.module";
+import {SidebarModule} from "../sidebar/sidebar.module";
 
 
 
@@ -8,8 +12,15 @@ import { MainComponent } from './main.component';
   declarations: [
     MainComponent
   ],
+  exports: [
+    MainComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FooterModule,
+    HeaderModule,
+    SidebarModule
   ]
 })
 export class MainModule { }

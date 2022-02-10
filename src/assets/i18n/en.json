@@ -1,0 +1,22 @@
+{
+  "USER_NAME" : "user name",
+  "PASSWORD" : "password",
+  "LOGIN_TO_PROJECT" : "login to project",
+  "LOGIN" : "login",
+  "USERNAME/PASSWORD_IS_NOT_CORRECT": "username or password is not correct",
+  "LOGIN_ERROR":"login error",
+  "USERNAME_IS_REQUIRED": "username is required",
+  "PASSWORD_IS_REQUIRED": "password is required",
+  "FAMILY_NAME": "family name",
+  "ROLE": "role",
+  "NAME" : "name",
+  "OPERATIONS": "operations",
+  "VIEW": "view detail",
+  "ADD": "create new",
+  "EDIT": "update detail",
+  "DELETE": "delete item",
+  "YES": "yes",
+  "NO": "no",
+  "CLOSE": "close",
+  "SAVE": "save"
+}

@@ -1,20 +1,28 @@
-<div class="container">
-  <div class="logo">Agent Q Dashboard</div>
-  <div class="login-item">
-    <form action="" method="post" class="form form-login">
-      <div class="form-field">
-        <label class="user" for="login-username"><span class="hidden">Username</span></label>
-        <input id="login-username" type="text" class="form-input" placeholder="Username" required>
-      </div>
 
-      <div class="form-field">
-        <label class="lock" for="login-password"><span class="hidden">Password</span></label>
-        <input id="login-password" type="password" class="form-input" placeholder="Password" required>
-      </div>
+<div class="main-container">
+  <div class="container">
+    <div class="logo">{{'LOGIN_TO_PROJECT' | translate}}</div>
+    <div class="login-item">
+      <form [formGroup]="formLogin" class="form form-login">
+        <div class="form-field">
+          <label class="pi pi-user white" for="login-username"></label>
+          <input id="login-username" type="text" class="form-input" formControlName="userName" pKeyFilter="alphanum"
+                 placeholder="{{'USER_NAME' | translate}}" [(ngModel)]="user.userName">
+        </div>
 
-      <div class="form-field">
-        <input type="submit" value="Log in">
-      </div>
-    </form>
+
+        <div class="form-field">
+          <label class="pi pi-key white" for="login-password"></label>
+          <input id="login-password" type="password" class="form-input" formControlName="password"
+                 placeholder="{{'PASSWORD' | translate}}" [(ngModel)]="user.password">
+        </div>
+
+        <div class="form-field">
+          <button pButton type="button" label="{{'LOGIN' | translate}}" (click)="loginProject()"
+                  [disabled]="!formLogin.valid"
+                  class="p-button-success"></button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

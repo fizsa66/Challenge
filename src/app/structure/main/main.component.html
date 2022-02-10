@@ -1,1 +1,21 @@
-<p>main works!</p>
+<div class="p-grid sample-layout" *ngIf="isAuthenticated">
+  <div class="p-col-12 p-md-2 mainHeight aside">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="p-col-12 p-md-10  p-col-nogutter main">
+    <div class="p-1 p-col-nogutter header" *ngIf="user.role?.title !=='admin'">
+      <app-header></app-header>
+    </div>
+    <div class="p-col-12">
+      <div class="p-grid content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12 footer" *ngIf="user.role?.title!=='admin'">
+    <app-footer></app-footer>
+  </div>
+</div>
+<div *ngIf="!isAuthenticated">
+  <router-outlet></router-outlet>
+</div>

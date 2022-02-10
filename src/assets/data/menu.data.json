@@ -1,0 +1,12 @@
+[
+  {
+    "menuName": "home",
+    "menuKey": "home",
+    "role": ["user","admin"]
+  },
+  {
+    "menuName": "user management",
+    "menuKey": "userManagement",
+    "role": ["user"]
+  }
+]

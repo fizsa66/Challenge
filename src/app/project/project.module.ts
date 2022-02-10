@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {UserManagementModule} from "./user-management/user-management.module";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ ],
   imports: [
-    CommonModule
+    CommonModule,
+    UserManagementModule
   ]
 })
 export class ProjectModule { }
